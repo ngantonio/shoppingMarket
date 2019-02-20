@@ -69,88 +69,40 @@
         </div>
       </div>
 
-
-      <div class="section text-center">
-        <h2 class="title">Here is our team</h2>
+    <!-- Products section -->
+    <div class="section text-center">
+        <h2 class="title">Productos Disponibles </h2>
         <div class="team">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="team-player">
-                <div class="card card-plain">
-                  <div class="col-md-6 ml-auto mr-auto">
-                    <img src="{{ asset('img/faces/avatar.jpg') }}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
-                  </div>
-                  <h4 class="card-title">Gigi Hadid
-                    <br>
-                    <small class="card-description text-muted">Model</small>
-                  </h4>
-                  <div class="card-body">
-                    <p class="card-description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                      <a href="#">links</a> for people to be able to follow them outside the site.</p>
-                  </div>
-                  <div class="card-footer justify-content-center">
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
-                  </div>
+            <div class="row">
+
+                @foreach($allProducts as $product)
+                <div class="col-md-4">
+                    <div class="team-player">
+                        <div class="card card-plain">
+                            <div class="col-md-6 ml-auto mr-auto">
+                                <img src="../assets/img/faces/avatar.jpg" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                            </div>
+                            <h4 class="card-title">{{ $product->name }}
+                                <br>
+                                <small class="card-description text-muted">{{ $product->description }}</small>
+                            </h4>
+                            <div class="card-body">
+                                <p class="card-description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
+                                <a href="#">links</a> for people to be able to follow them outside the site.</p>
+                            </div>
+                            <div class="card-footer justify-content-center">
+                                <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
+                                <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
+                                <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
+                @endforeach
             </div>
-
-            <div class="col-md-4">
-              <div class="team-player">
-                <div class="card card-plain">
-                  <div class="col-md-6 ml-auto mr-auto">
-                    <img src="{{ asset('img/faces/christian.jpg') }}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
-                  </div>
-
-                  <h4 class="card-title">Christian Louboutin
-                    <br>
-                    <small class="card-description text-muted">Designer</small>
-                  </h4>
-
-                  <div class="card-body">
-                    <p class="card-description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                      <a href="#">links</a> for people to be able to follow them outside the site.</p>
-                  </div>
-
-                  <div class="card-footer justify-content-center">
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="team-player">
-                <div class="card card-plain">
-
-                  <div class="col-md-6 ml-auto mr-auto">
-                    <img src="{{ asset('img/faces/kendall.jpg') }}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
-                  </div>
-
-                  <h4 class="card-title">Kendall Jenner
-                    <br>
-                    <small class="card-description text-muted">Model</small>
-                  </h4>
-
-                  <div class="card-body">
-                    <p class="card-description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                      <a href="#">links</a> for people to be able to follow them outside the site.</p>
-                  </div>
-
-                  <div class="card-footer justify-content-center">
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
+    <!--End Section text center -->
 
 
       <div class="section section-contacts">
