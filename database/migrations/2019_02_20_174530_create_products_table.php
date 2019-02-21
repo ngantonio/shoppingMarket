@@ -18,13 +18,13 @@ class CreateProductsTable extends Migration
 
             $table->string('name');
             $table->string('description');
-            $table->text('description-details')->nullable();
+            $table->text('description_details')->nullable();
             $table->float('price');
 
             // Un producto siempre va dentro de una categoria
             // sin embargo al crear un producto, no es necesario especificar una
             $table->integer('category_id')->unsigned()->nullable();
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             
             $table->timestamps();
         });

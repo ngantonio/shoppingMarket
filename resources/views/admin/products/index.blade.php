@@ -23,7 +23,7 @@
               <table class="table">
                   <thead>
                       <tr>
-                          <th class="text-center">#</th>
+
                           <th> Nombre</th>
                           <th> Descripción</th>
                           <th> Categoría</th>
@@ -34,32 +34,35 @@
                   <tbody>
                       @foreach($allProducts as $product)
                       <tr>
-                          <td class="text-right">{{ $product->id }}</td>
                           <td>{{ $product->name }}</td>
-                          <td class="col-md-4">{{ $product->description }}</td>
-                          <td>{{ $product->getCategory }}</td>
+                          <td class="col-md-4"> {{ $product->description }}</td>
+                          <td>{{ $product->getCategory ? $product->getCategory->name : 'General' }}</td>
                           <td class="td-actions text-right">&dollar; {{ $product->price }} </td>
                           <td class="td-actions text-right col-md-4">
-                              <button type="button" rel="tooltip" title="Ver producto" class="btn btn-info btn-simple btn-xs">
-                                <i class="material-icons">info</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Editar" class="btn btn-success
-                              btn-simple btn-xs">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Eliminar" class="btn btn-danger
-                              btn-simple btn-xs">
-                                  <i class="fa fa-times"></i>
-                              </button>
+                              <form method="POST" action="{{ url('/admin/products/'.$product->id.'') }}">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+
+                                <a href="#" type="button" rel="tooltip" title="Ver producto" class="btn btn-info btn-simple btn-xs">
+                                    <i class="material-icons">info</i>
+                                </a>
+                                 <a href="{{ url('/admin/products/'.$product->id.'/edit') }}" type="button" rel="tooltip" title="Editar" class="btn btn-success
+                                btn-simple btn-xs">
+                                    <i class="material-icons">edit</i>
+                                </a>
+                                <button type="submit" rel="tooltip" title="Eliminar" class="btn btn-danger
+                                btn-simple btn-xs">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                              </form>
                           </td>
                       </tr>
                       @endforeach
-                      <!-- Otro Tr-->
                   </tbody>
               </table>
 
               <!-- pagination-->
-              <div class="text-center">
+              <div class="center-block">
                 {{ $allProducts->links("pagination::bootstrap-4") }}
               </div>
              
