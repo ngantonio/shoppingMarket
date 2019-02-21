@@ -2,7 +2,7 @@
 
 @section('title','Bienvenido a Shopping Market')
 <!-- si se quiere agregar una clase que esta en el tag body: -->
-@section('body-class', 'landing-page sidebar-collapse')
+@section('body class', 'landing-page sidebar-collapse')
 @section('content')
   
 <!--jumbotron-->
