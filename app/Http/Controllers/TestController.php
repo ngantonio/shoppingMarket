@@ -9,7 +9,7 @@ class TestController extends Controller
 {
     public function welcome(){
 
-        $allProducts = Product::all();
+        $allProducts = Product::paginate(6);
         #Inyectamos a la vista, compact crea un arreglo asociativo
         return view("welcome")->with(compact('allProducts'));
     }

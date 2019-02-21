@@ -15,10 +15,10 @@ class UserTableSeeder extends Seeder
         # Creando nuevo usuario   
         User::create([
 
-            'name' => "Juan",
-            'email' => "juangao@gmail.com",
-            'password' => bcrypt("123123")
-
+            'name' => "Gabriel",
+            'email' => "oliveiragabr@outlook.com",
+            'password' => bcrypt("123456"),
+            'admin' => true
         ]);
     }
 }

@@ -104,6 +104,7 @@
             </div>
         </div>
     </div>
+    {{ $allProducts->links("pagination::bootstrap-4") }}
     <!--End Section text center -->
 
 

@@ -24,9 +24,9 @@
                   <thead>
                       <tr>
 
-                          <th> Nombre</th>
-                          <th> Descripción</th>
-                          <th> Categoría</th>
+                          <th class="col-md-2 text-center"> Nombre</th>
+                          <th class="col-md-2 text-center"> Descripción</th>
+                          <th class="text-center"> Categoría</th>
                           <th class="text-right">Precio</th>
                           <th class="text-rigth">Acciones</th>
                           </tr>
@@ -43,13 +43,19 @@
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
 
-                                <a href="#" type="button" rel="tooltip" title="Ver producto" class="btn btn-info btn-simple btn-xs">
+                                <a href="#" rel="tooltip" title="Ver producto" class="btn btn-info btn-simple btn-xs">
                                     <i class="material-icons">info</i>
                                 </a>
-                                 <a href="{{ url('/admin/products/'.$product->id.'/edit') }}" type="button" rel="tooltip" title="Editar" class="btn btn-success
+                                <a href="{{ url('/admin/products/'.$product->id.'/edit') }}" type="button" rel="tooltip" title="Editar" class="btn btn-success
                                 btn-simple btn-xs">
                                     <i class="material-icons">edit</i>
                                 </a>
+
+                                <a href="{{ url('/admin/products/'.$product->id.'/images') }}" type="button" rel="tooltip" title="Imagenes" class="btn btn-warning
+                                btn-simple btn-xs">
+                                    <i class="material-icons">image</i>
+                                </a>
+                                
                                 <button type="submit" rel="tooltip" title="Eliminar" class="btn btn-danger
                                 btn-simple btn-xs">
                                     <i class="fa fa-times"></i>

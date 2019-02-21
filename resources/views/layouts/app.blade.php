@@ -39,23 +39,10 @@
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
-
+      
+      <!-- opciones navegacion -->
       <div class="collapse navbar-collapse">
          <ul class="navbar-nav ml-auto">       
-          <li class="dropdown nav-item">
-              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                <i class="material-icons">apps</i> Components
-              </a>
-              <div class="dropdown-menu dropdown-with-icons">
-                <a href="../index.html" class="dropdown-item">
-                  <i class="material-icons">layers</i> All Components
-                </a>
-                <a href="https://demos.creative-tim.com/material-kit/docs/2.1/getting-started/introduction.html" class="dropdown-item">
-                  <i class="material-icons">content_paste</i> Documentation
-                </a>
-              </div>
-          </li>
-
           <!-- Authentication Links -->
           @guest
             <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Iniciar Sesión</a></li>
@@ -66,7 +53,16 @@
                   {{ Auth::user()->name }} <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                  <li class="dropdown nav-item">
+                
+                @if(auth()->user()->admin)
+                <li class="dropdown nav-item">
+                  <a class="nav-link" href="{{ url('/admin/products') }}">
+                          Gestionar Productos
+                  </a>
+                </li>
+                @endif
+
+                <li class="dropdown nav-item">
                       <a class="nav-link" href="{{ route('logout') }}"
                           onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
@@ -98,24 +94,13 @@
       <div class="container">
         <nav class="float-left">
           <ul>
-            <li>
-              <a href="https://www.creative-tim.com">
-                Creative Tim
+              <a href="#">
+                Sobre nosotros
               </a>
             </li>
             <li>
-              <a href="https://creative-tim.com/presentation">
-                About Us
-              </a>
-            </li>
-            <li>
-              <a href="http://blog.creative-tim.com">
-                Blog
-              </a>
-            </li>
-            <li>
-              <a href="https://www.creative-tim.com/license">
-                Licenses
+              <a href="#">
+                Preguntas Frecuentes
               </a>
             </li>
           </ul>
@@ -125,8 +110,8 @@
           &copy;
           <script>
             document.write(new Date().getFullYear())
-          </script>, made with <i class="material-icons">favorite</i> by
-          <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+          </script>, Desarrollado por Gabriel Antonio con plantilla <i class="material-icons">favorite</i> by
+          <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
         </div>
         
       </div>
