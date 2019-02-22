@@ -23,7 +23,7 @@ class CreateProductImagesTable extends Migration
             # Clave foranea para que se pueda identificar a que producto
             #pertenece esa imagen
             $table->integer('product_id')->unsigned();
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');;
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -15,9 +15,16 @@ Auth::routes();
 Route::get('/', 'TestController@welcome');
 
 Route::get('/home', 'HomeController@index')->name('home');
+# Pagina para un producto
+Route::get('/products/{id}','ProductController@show');
+
+#Ruta para agregar un elemento al carrito
+Route::post('/cart','CartDetailController@store');
+#Ruta para eliminar un elemento al carrito
+Route::delete('/cart','CartDetailController@destroy');
 
 // Definiendo un grupo de rutas para usuarios administradores
-Route::middleware(['auth','admin'])->prefix('admin')->group(function(){
+Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(function(){
 
   Route::get('/products', 'ProductController@index');           // Listado de productos, devuelve un listado
   # Crear Productos
@@ -31,6 +38,9 @@ Route::middleware(['auth','admin'])->prefix('admin')->group(function(){
 
   #Imagenes 
   Route::get('/products/{id}/images', 'ImageController@index'); 
-  Route::post('/products{id}/images', 'ImageController@store');
-  Route::delete('/products{id}/images', 'ImageController@destroy'); 
+  Route::post('/products/{id}/images', 'ImageController@store');
+  Route::delete('/products/{id}/images', 'ImageController@destroy');
+  # Permite destacar una imagen
+  Route::get('/products/{id}/images/select/{image}', 'ImageController@select');  
+
 });

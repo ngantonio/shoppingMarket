@@ -15,4 +15,19 @@ class Product extends Model
         # Un producto tiene muchas imagenes
         return $this->hasMany(ProductImage::class);
     }
+
+    # Accessor para mostrar una imagen destacada
+    public function getFeaturedImageUrlAttribute(){
+
+        $featuredImage = $this->getImages()->where('featured', true)->first();
+        
+        # Si no tiene imagen destacada, toma la primera imagen del producto
+        if(!$featuredImage)
+            $featuredImage = $this->getImages()->first();
+    
+        if($featuredImage)
+            return $featuredImage->url;
+
+        return '/images/products/default.png';
+    }
 }

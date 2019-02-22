@@ -1,0 +1,6 @@
+                      <!--@foreach( $imagesLeft as $image)
+                        <img src="{{ $image->url }}" class="rounded">
+                      @endforeach-->
+                      <!--@foreach( $imagesRight as $image)
+                        <img src="{{ $image->url }}" class="rounded">
+                      @endforeach-->

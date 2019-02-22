@@ -18,6 +18,8 @@
   <link href="{{ asset('css/material-kit.css?v=2.0.5') }}" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{ asset('demo/demo.css') }}" rel="stylesheet" />
+  
+  @yield('styles')
 
 </head>
 
@@ -42,7 +44,8 @@
       
       <!-- opciones navegacion -->
       <div class="collapse navbar-collapse">
-         <ul class="navbar-nav ml-auto">       
+         <ul class="navbar-nav ml-auto">
+
           <!-- Authentication Links -->
           @guest
             <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Iniciar Sesión</a></li>
@@ -61,6 +64,11 @@
                   </a>
                 </li>
                 @endif
+                <li class="dropdown nav-item">
+                  <a class="nav-link" href="{{ url('/home') }}">
+                      Dashboard
+                  </a>
+                </li>     
 
                 <li class="dropdown nav-item">
                       <a class="nav-link" href="{{ route('logout') }}"

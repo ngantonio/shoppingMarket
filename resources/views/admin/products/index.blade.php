@@ -23,18 +23,18 @@
               <table class="table">
                   <thead>
                       <tr>
-
-                          <th class="col-md-2 text-center"> Nombre</th>
-                          <th class="col-md-2 text-center"> Descripción</th>
-                          <th class="text-center"> Categoría</th>
-                          <th class="text-right">Precio</th>
-                          <th class="text-rigth">Acciones</th>
-                          </tr>
+                        <th class="col-md-2 text-center"> Nombre</th>
+                        <th class="col-md-2 text-center"> Descripción</th>
+                        <th class="text-center"> Categoría</th>
+                        <th class="text-right">Precio</th>
+                        <th class="text-rigth">Acciones</th>
+                        </tr>
                   </thead>
                   <tbody>
                       @foreach($allProducts as $product)
                       <tr>
-                          <td>{{ $product->name }}</td>
+                        
+                        <td>{{ $product->name }}</td>
                           <td class="col-md-4"> {{ $product->description }}</td>
                           <td>{{ $product->getCategory ? $product->getCategory->name : 'General' }}</td>
                           <td class="td-actions text-right">&dollar; {{ $product->price }} </td>
@@ -43,7 +43,7 @@
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
 
-                                <a href="#" rel="tooltip" title="Ver producto" class="btn btn-info btn-simple btn-xs">
+                                <a href="{{ url('products/'.$product->id) }}" rel="tooltip" title="Ver producto" class="btn btn-info btn-simple btn-xs">
                                     <i class="material-icons">info</i>
                                 </a>
                                 <a href="{{ url('/admin/products/'.$product->id.'/edit') }}" type="button" rel="tooltip" title="Editar" class="btn btn-success
