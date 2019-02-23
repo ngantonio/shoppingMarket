@@ -22,7 +22,7 @@
               </div>
 
               @if(session('notification'))
-                <div class="alert alert-success">
+                <div class="alert alert-success text-center">
                   {{ session('notification') }}
                 </div>
               @endif
@@ -40,47 +40,37 @@
         <div class="description text-center">
           <p>{{ $product->description_details }}</p>
         </div>
-
-        <!-- button -->
-        <div class="text-center">
-          <button class="btn btn-primary  btn-round" data-toggle="modal" data-target="#modalAddToCart">
-            <i class="material-icons">add</i> Añadir al carrito
-          </button>
+        <div class="description text-center">
+          <h3> &dollar; {{ $product->price }}</h3>
         </div>
-        <!-- end button -->
-        
-        <div class="row">
-          <div class="col-md-6 ml-auto mr-auto">
-            <div class="profile-tabs">
 
-              <!--
-              <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
-                    <i class="material-icons">camera</i> Studio
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#works" role="tab" data-toggle="tab">
-                    <i class="material-icons">palette</i> Work
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#favorite" role="tab" data-toggle="tab">
-                    <i class="material-icons">favorite</i> Favorite
-                  </a>
-                </li>
-              </ul>
-              -->
-              <div class="tab-content tab-space">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <div class="profile-tabs"> 
+              <div class="text-center">
+                @guest
+                  <!-- nothing -->
+                @else
+                  <button class="btn btn-outline-primary  btn-round" data-toggle="modal" data-target="#modalAddToCart">
+                        <i class="material-icons">add</i> Añadir al carrito
+                  </button>
+                @endguest
+                <a href="{{ url('/') }}" type="button" class="btn btn-btn-outline-light btn-round">
+                    <i class="material-icons">arrow_back</i> Regresar
+                </a>
+              <div class="tab-content">
                 <div class="tab-pane active text-center gallery" id="studio">
                   <div class="row">
-                    <div class="col-md-3 ml-auto">
-
+                    <div class="col-md-4 ml-auto">
+                        @foreach( $imagesLeft as $image)
+                          <img src="{{ $image->url }}" class="rounded">
+                        @endforeach
                     </div>
                     
-                    <div class="col-md-3 mr-auto">
-
+                    <div class="col-md-6 mr-auto">
+                      @foreach( $imagesRight as $image)
+                        <img src="{{ $image->url }}" class="rounded">
+                      @endforeach
                     </div>           
                   </div>
                   <!--End row -->

@@ -22,6 +22,8 @@ Route::get('/products/{id}','ProductController@show');
 Route::post('/cart','CartDetailController@store');
 #Ruta para eliminar un elemento al carrito
 Route::delete('/cart','CartDetailController@destroy');
+# Ruta para convertir el carrito en un pedido
+Route::post('/order','CartController@update');
 
 // Definiendo un grupo de rutas para usuarios administradores
 Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(function(){

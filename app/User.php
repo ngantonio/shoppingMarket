@@ -53,4 +53,11 @@ class User extends Authenticatable
         return $cart;
 
     }
+
+    public function getOrderAttribute(){
+        $order = $this->carts()->where('status', '!=','Active')->get();
+
+        return $order;
+
+    }
 }
