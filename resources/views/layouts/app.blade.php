@@ -83,7 +83,7 @@
                   </li>
               </ul>
             </li>
-        @endguest
+          @endguest
         <!-- END Authentication Links -->
 
         </ul>

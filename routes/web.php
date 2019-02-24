@@ -24,6 +24,11 @@ Route::post('/cart','CartDetailController@store');
 Route::delete('/cart','CartDetailController@destroy');
 # Ruta para convertir el carrito en un pedido
 Route::post('/order','CartController@update');
+#Ruta para eliminar un pedido
+Route::delete('/order','CartController@destroy');
+#Ruta para cambiar el status de un pedido
+Route::post('/order/status','CartController@updateStatus');
+
 
 // Definiendo un grupo de rutas para usuarios administradores
 Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(function(){

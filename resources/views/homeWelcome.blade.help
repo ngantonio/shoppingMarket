@@ -116,3 +116,13 @@ WELCOME
         </div>
     </body>
 </html>
+
+
+
+                    @foreach(auth()->user()->orderDetails->details)
+                    <tr>
+                        <td>{{ $details->name }}</td>
+                        <td>{{ $details->price }}</td>
+                        <td>&dollar;{{ $details->quantity }}</td>
+                    </tr>
+                    @endforeach

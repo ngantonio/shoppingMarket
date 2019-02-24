@@ -52,12 +52,14 @@
                   <!-- nothing -->
                 @else
                   <button class="btn btn-outline-primary  btn-round" data-toggle="modal" data-target="#modalAddToCart">
-                        <i class="material-icons">add</i> Añadir al carrito
+                      <i class="material-icons">add</i> Añadir al carrito
                   </button>
                 @endguest
+                
                 <a href="{{ url('/') }}" type="button" class="btn btn-btn-outline-light btn-round">
                     <i class="material-icons">arrow_back</i> Regresar
                 </a>
+              </div>
               <div class="tab-content">
                 <div class="tab-pane active text-center gallery" id="studio">
                   <div class="row">
@@ -91,7 +93,7 @@
   <!--end contenido del perfil-->
 
   <!-- Modal -->
-  <div class="modal fade" id="modalAddToCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modalAddToCart" tabindex="-1" role="dialog" aria-labelledby="modalAddToCart" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -120,5 +122,7 @@
       </div>
     </div>
   </div>
+
+
 
 @endsection

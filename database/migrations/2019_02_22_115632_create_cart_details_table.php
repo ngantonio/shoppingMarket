@@ -17,10 +17,10 @@ class CreateCartDetailsTable extends Migration
             $table->increments('id');
 
             $table->integer('cart_id')->unsigned();
-            $table->foreign('cart_id')->references('id')->on('carts');#->onDelete('cascade');
+            $table->foreign('cart_id')->references('id')->on('carts')->onDelete('cascade');
             
             $table->integer('product_id')->unsigned();
-            $table->foreign('product_id')->references('id')->on('products');#->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             
             $table->integer('quantity');
             $table->integer('discount')->default(0);    # %

@@ -53,11 +53,36 @@ class User extends Authenticatable
         return $cart;
 
     }
-
+    
+    #Muestra todos los pedidos
     public function getOrderAttribute(){
         $order = $this->carts()->where('status', '!=','Active')->get();
+        
+        if ($order)
+            return $order;
 
-        return $order;
+    }
+
+    #Muestra los productos dentro de los pedidos cart->cartDetails
+    public function getOrderDetailsAttribute(){
+        $orderDetails = $this->carts()->where('status', '!=','Active')->first();
+        
+        
+        return $orderDetails;
 
     }
 }
+
+/*
+
+                    @if(auth()->user()->orderDetails)
+                        @foreach(auth()->user()->orderDetails->details as $detail)
+                        <tr>
+                            <td>{{ $detail->product->name }}</td>
+                            <td>&dollar;{{ $detail->product->price }}</td>
+                            <td>{{ $detail->quantity }}</td>
+                        </tr>
+                        @endforeach
+                    @endif
+
+*/
