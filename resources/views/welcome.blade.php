@@ -47,6 +47,11 @@
       <div class="section text-center">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
+            @if (session('notification'))
+              <div class="alert alert-success text-center">
+                  {{ session('notification') }}
+              </div>
+            @endif
             <h2 class="title">¿Qué es Shopping Market?</h2>
             <h5 class="description">Somos una nueva tienda de comercio electronico que ofrece productos 
                 de distintas categorias a precios accesibles. Puedes comparar precios y realizar tus pedidos 
@@ -137,26 +142,27 @@
           <div class="col-md-8 ml-auto mr-auto">
             <h2 class="text-center title">Trabajamos para ti</h2>
             <h4 class="text-center description">Si aún no te registras, puedes enviarnos tus dudas y te responderemos a la brevedad.</h4>
-            <form class="contact-form">
+            <form class="contact-form" method="post" action="{{ url('/message/new') }}">
+              {{ csrf_field() }}
               <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="bmd-label-floating">¿Cuál es tu nombre?</label>
-                        <input type="email" class="form-control">
+                        <input type="text" name="name_user" class="form-control">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                   <div class="form-group">
                     <label class="bmd-label-floating">Tu Correo Electronico</label>
-                    <input type="email" class="form-control">
+                    <input type="email" name="email" class="form-control">
                   </div>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="exampleMessage" class="bmd-label-floating">Plantea tus dudas</label>
-                <textarea type="email" class="form-control" rows="4" id="exampleMessage"></textarea>
+                <textarea type="text" name="message" class="form-control" rows="4" id="exampleMessage"></textarea>
               </div>
               <div class="row">
                 <div class="col-md-4 ml-auto mr-auto text-center">

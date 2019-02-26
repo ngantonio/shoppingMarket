@@ -1,3 +1,4 @@
+<!--Vista de administracion de productos -->
 @extends('layouts.app')
 
 @section('title','Nuestros Productos')

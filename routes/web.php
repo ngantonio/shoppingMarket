@@ -28,6 +28,8 @@ Route::post('/order','CartController@update');
 Route::delete('/order','CartController@destroy');
 #Ruta para cambiar el status de un pedido
 Route::post('/order/status','CartController@updateStatus');
+#Ruta para enviar un mensage de consulta al admin
+Route::post('/message/new','MessageController@store');
 
 
 // Definiendo un grupo de rutas para usuarios administradores
