@@ -36,7 +36,7 @@
                             </div>
                             <h4 class="card-title"> <a href=" {{ url('/products/'. $product->id) }}"> {{ $product->name }}  </a>
                                 <br>
-                                <small class="card-description text-muted"> {{ $product->category->name }}</small>
+                                <small class="card-description text-muted"> <a href=" {{ url('/categories/'. $product->category->id) }}"> {{ $product->category->name }} </a></small>
                             </h4>
                             <div class="card-body">
                                 <p class="card-description">{{ $product->description }} </p>

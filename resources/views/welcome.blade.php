@@ -122,7 +122,7 @@
                             </div>
                             <h4 class="card-title"> <a href=" {{ url('/products/'. $product->id) }}"> {{ $product->name }}  </a>
                                 <br>
-                                <h4 class="card-description"> {{ $product->category->name }}</h4>
+                                <h4 class="card-description"> <a href=" {{ url('/categories/'. $product->category->id) }}"> {{ $product->category->name }} </a></h4>
                                 <br>
                                 <small class="card-description text-muted">&dollar; {{ $product->price}}</small>
                             </h4>

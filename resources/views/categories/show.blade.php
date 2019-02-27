@@ -41,7 +41,7 @@
         </div>
 
         <div class="section text-center">
-          <h2 class="title">Productos destacados </h2>
+          <h2 class="title">Productos</h2>
           <div class="team">
               <div class="row">
                   @foreach($products as $product)

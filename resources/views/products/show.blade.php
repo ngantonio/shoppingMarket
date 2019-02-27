@@ -29,7 +29,7 @@
 
               <div class="name">
                 <h3 class="title">{{ $product->name }}</h3>
-                <h4>{{ $product->category->name }}</h4>
+                <h4><a href=" {{ url('/categories/'. $product->category->id) }}"> {{ $product->category->name }} </a></h4>
               </div>
               <!--End name-->
             </div>
