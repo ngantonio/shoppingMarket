@@ -13,4 +13,8 @@ class TestController extends Controller
         $allProducts = Product::orderBy('popularity','DESC')->limit(6)->get();
         return view("welcome")->with(compact('allProducts'));
     }
+
+    // mostrar categorias que tengan al menos un producto
+   //has verifica la existencis de relaciones
+    //$categories = Category::has('products')->
 }

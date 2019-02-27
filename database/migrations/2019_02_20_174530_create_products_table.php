@@ -23,7 +23,6 @@ class CreateProductsTable extends Migration
             $table->integer('popularity')->default(1);
 
             // Un producto siempre va dentro de una categoria
-            // sin embargo al crear un producto, no es necesario especificar una
             $table->integer('category_id')->unsigned()->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             

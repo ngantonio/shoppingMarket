@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    public function getCategory(){
+    public function category(){ 
         # Un producto pertenece a una categoria
         return $this->belongsTo(Category::class);
     }
@@ -20,7 +20,7 @@ class Product extends Model
     public function getFeaturedImageUrlAttribute(){
 
         $featuredImage = $this->getImages()->where('featured', true)->first();
-        
+         
         # Si no tiene imagen destacada, toma la primera imagen del producto
         if(!$featuredImage)
             $featuredImage = $this->getImages()->first();
@@ -29,5 +29,12 @@ class Product extends Model
             return $featuredImage->url;
 
         return '/images/products/default.png';
+    }
+
+    public function getCategoryNameAttribute(){
+        
+        if($this->category)
+            return $this->category->name;
+        return 'General';
     }
 }

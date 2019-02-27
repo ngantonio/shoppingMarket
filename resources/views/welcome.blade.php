@@ -58,7 +58,7 @@
                 cuando lo desees! </h5>
           </div>
         </div>
-
+ 
         <div class="features">
           <div class="row">
 
@@ -97,10 +97,20 @@
 
     <!-- Products section -->
     <div class="section text-center">
-        <h2 class="title">Productos más populares </h2>
-        <div class="team">
+        <h2 class="title">Productos destacados </h2>
+          <div class="team">
+          <!--button -->
+            <form class="form-inline ml-auto mr-auto" name="query" method="get" action="{{ url('search') }}">
+              <div class="form-group no-border">
+                <input type="text" class="form-control" placeholder="¿Que producto buscas?" name="query">
+              </div>
+              <button type="submit" class="btn btn-primary btn-just-icon btn-round">
+                  <i class="material-icons">search</i>
+              </button>
+            </form>
+            <!--End button -->
+            
             <div class="row">
-
                 @foreach($allProducts as $product)
                 <div class="col-md-4">
                     <div class=" card team-player">
@@ -112,7 +122,8 @@
                             </div>
                             <h4 class="card-title"> <a href=" {{ url('/products/'. $product->id) }}"> {{ $product->name }}  </a>
                                 <br>
-                                <small class="card-description text-muted"> {{ $product->getCategory }}</small>
+                                <h4 class="card-description"> {{ $product->category->name }}</h4>
+                                <br>
                                 <small class="card-description text-muted">&dollar; {{ $product->price}}</small>
                             </h4>
                             <div class="card-body">

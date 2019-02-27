@@ -29,7 +29,7 @@
 
               <div class="name">
                 <h3 class="title">{{ $product->name }}</h3>
-                <h6>{{ $product->getCategory }}</h6>
+                <h4>{{ $product->category->name }}</h4>
               </div>
               <!--End name-->
             </div>

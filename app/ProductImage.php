@@ -20,4 +20,6 @@ class ProductImage extends Model
             return $this.url;
         return '/images/products/'.$this.url;
     }*/
+
+    
 }

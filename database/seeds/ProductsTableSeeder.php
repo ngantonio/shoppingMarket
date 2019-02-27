@@ -23,7 +23,7 @@ class ProductsTableSeeder extends Seeder
             # creamos los productos para cada categoria sin almacenarlos
             $products = factory(Product::class, 20)->make();
             # guardamos dentro de la categoria
-            $cat->getProducts()->saveMany($products);
+            $cat->products()->saveMany($products);
 
             # cada producto debe tener 5 imagenes
             $products->each(function($prod){

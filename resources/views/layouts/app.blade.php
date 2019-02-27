@@ -64,7 +64,12 @@
                 @if(auth()->user()->admin)
                 <li class="dropdown nav-item">
                   <a class="nav-link" href="{{ url('/admin/products') }}">
-                          Gestionar Productos
+                          Administar Productos
+                  </a>
+                </li>
+                <li class="dropdown nav-item">
+                  <a class="nav-link" href="{{ url('/admin/categories') }}">
+                          Administrar Categorias
                   </a>
                 </li>
                 @endif

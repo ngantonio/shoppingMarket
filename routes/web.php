@@ -19,8 +19,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/products','ProductController@index');
 # Ruta para un producto
 Route::get('/products/{id}','ProductController@show');
-#Ruta para mostrar las categorias de productos
-Route::get('/categories','  CategoryController@index');
+#Ruta para mostrar todas las categorias de productos
+Route::get('/categories','CategoryController@index');
+#Ruta para mostrar una categoria
+Route::get('/categories/{category}','CategoryController@show');
+#Ruta para hacer una busqueda
+Route::get('/search','SearchController@show');
 
 #Ruta para agregar un elemento al carrito
 Route::post('/cart','CartDetailController@store');
@@ -55,5 +59,21 @@ Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(
   Route::delete('/products/{id}/images', 'ImageController@destroy');
   # Permite destacar una imagen
   Route::get('/products/{id}/images/select/{image}', 'ImageController@select');  
+
+  /* ADMINSITRACION DE CATEGORIAS */
+
+  # Listar categorias
+  Route::get('/categories', 'CategoryController@index');           // Listado de productos, devuelve un listado
+  # Crear y registrar
+  Route::get('/categories/create', 'CategoryController@create');  // Creacion de nuevos productos, devueeve un form
+  Route::post('/categories', 'CategoryController@store');         // Registra los datos
+  
+  # Actualizar y editar
+  Route::get('/categories/{category}/edit', 'CategoryController@edit');
+  Route::post('/categories{category}/edit', 'CategoryController@update');
+  #Eliminar
+  Route::delete('/categories/{category}', 'CategoryController@destroy');
+
+
 
 });
