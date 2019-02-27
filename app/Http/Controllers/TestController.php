@@ -9,8 +9,8 @@ class TestController extends Controller
 {
     public function welcome(){
 
-        $allProducts = Product::paginate(6);
         #Inyectamos a la vista, compact crea un arreglo asociativo
+        $allProducts = Product::orderBy('popularity','DESC')->limit(6)->get();
         return view("welcome")->with(compact('allProducts'));
     }
 }

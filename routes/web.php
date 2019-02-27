@@ -15,8 +15,12 @@ Auth::routes();
 Route::get('/', 'TestController@welcome');
 
 Route::get('/home', 'HomeController@index')->name('home');
-# Pagina para un producto
+#Ruta para todos los productos
+Route::get('/products','ProductController@index');
+# Ruta para un producto
 Route::get('/products/{id}','ProductController@show');
+#Ruta para mostrar las categorias de productos
+Route::get('/categories','  CategoryController@index');
 
 #Ruta para agregar un elemento al carrito
 Route::post('/cart','CartDetailController@store');

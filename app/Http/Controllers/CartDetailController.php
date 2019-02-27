@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\CartDetail;
+use App\Product;
 
 
 class CartDetailController extends Controller
@@ -18,8 +19,14 @@ class CartDetailController extends Controller
         # activo para ese usuario que esta en la sesion.
         # Definimos un accessor en el modelo User para poder obtener su id
         $cartDetail->cart_id = auth()->user()->cart->id;
-
         $cartDetail->product_id = $request->product_id;
+        # Buscamos el producto seleccionado para aumentar su nivel de popularidadad:
+        # Se asume que cuando un usuario agrega un producto al carrito es porque le gustó
+        # y tiene la intencion de comprarlo...
+        $product = Product::find($request->product_id);
+        $product->popularity = $product->popularity + 1;
+        $product->save();
+        
         $cartDetail->quantity = $request->quantity;
         $cartDetail->save();
 

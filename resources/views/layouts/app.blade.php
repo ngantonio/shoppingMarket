@@ -46,6 +46,9 @@
       <div class="collapse navbar-collapse">
          <ul class="navbar-nav ml-auto">
 
+          <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url('/products') }}">Nuestros Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url('/categories') }}">Categorias </a></li>
           <!-- Authentication Links -->
           @guest
             <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Iniciar Sesión</a></li>
@@ -53,7 +56,8 @@
           @else
             <li class="dropdown nav-item">
               <a class="nav-link" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                  {{ Auth::user()->name }} <span class="caret"></span>
+                  {{ Auth::user()->name }} 
+                  <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
                 

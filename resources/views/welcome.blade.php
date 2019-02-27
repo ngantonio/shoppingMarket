@@ -97,7 +97,7 @@
 
     <!-- Products section -->
     <div class="section text-center">
-        <h2 class="title">Productos Disponibles </h2>
+        <h2 class="title">Productos más populares </h2>
         <div class="team">
             <div class="row">
 
@@ -113,6 +113,7 @@
                             <h4 class="card-title"> <a href=" {{ url('/products/'. $product->id) }}"> {{ $product->name }}  </a>
                                 <br>
                                 <small class="card-description text-muted"> {{ $product->getCategory }}</small>
+                                <small class="card-description text-muted">&dollar; {{ $product->price}}</small>
                             </h4>
                             <div class="card-body">
                                 <p class="card-description">{{ $product->description }} </p>
@@ -126,7 +127,9 @@
             </div>
         </div>
         <div class="text-center">
-          {{ $allProducts->links("pagination::bootstrap-4") }}
+          <a href="{{ url('/products') }}" type="button" class="btn btn-outline-primary  btn-round">
+            <i class="material-icons">add</i> Ver más
+          </a>
         </div>
     </div>
 

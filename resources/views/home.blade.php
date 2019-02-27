@@ -52,8 +52,7 @@
         </ul>
 
 
-        <div class="tab-content tab-space">          
-            
+        <div class="tab-content tab-space">                  
             <!--Carrito -->
             <div class="tab-pane active" id="cart">
                 @yield("content_dashboard_cart")

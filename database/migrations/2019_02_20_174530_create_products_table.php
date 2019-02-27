@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->text('description_details')->nullable();
             $table->float('price');
+            $table->integer('popularity')->default(1);
 
             // Un producto siempre va dentro de una categoria
             // sin embargo al crear un producto, no es necesario especificar una

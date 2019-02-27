@@ -1,4 +1,3 @@
-
 @section('content_dashboard_orders')
 
 @if(auth()->user()->order->count() > 0)
@@ -25,7 +24,8 @@
             <td class="td-actions">
                 <button type="button" rel="tooltip" title="Detalles" class="btn btn-info btn-fab btn-fab-mini btn-round" data-toggle="modal" data-target="#productsModal">
                     <i class="material-icons">list</i>
-                </button>       
+                </button>   
+    
                 @if(auth()->user()->admin)
                     <button type="button" rel="tooltip" title="Cambiar status" class="btn btn-success btn-fab btn-fab-mini btn-round" data-toggle="modal" data-target="#statusModal">
                             <i class="material-icons">assignment</i>
@@ -42,56 +42,43 @@
         @endforeach
     </tbody>
 </table>
-@else
-    <div class="row">
-        <div class="col-md-12">  
-            <div class="info">
-                <div class="icon icon-info text-center">
-                    <i class="material-icons">info</i>
-                </div>
-                <div class="text-center"><h2>No hay pedidos aqui por ahora</h2></div>
-            </div> 
-        </div>
-    </div>
-@endif
-
 <!-- Modal Products -->
 <div class="modal fade" id="productsModal" tabindex="-1" role="dialog" aria-labelledby="productsModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="text-center modal-title " id="exampleModalLongTitle">Mostrando productos del pedido</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Producto</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>   
-                    </tr>
-                </thead>
-                <tbody>
-                    @if(auth()->user()->orderDetails)
-                        @foreach(auth()->user()->orderDetails->details as $detail)
-                        <tr>
-                            <td>{{ $detail->product->name }}</td>
-                            <td>&dollar;{{ $detail->product->price }}</td>
-                            <td>{{ $detail->quantity }}</td>
-                        </tr>
-                        @endforeach
-                    @endif
+          <div class="modal-header">
+              <h5 class="text-center modal-title " id="exampleModalLongTitle">Mostrando productos del pedido</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th>Producto</th>
+                          <th>Precio</th>
+                          <th>Cantidad</th>   
+                      </tr>
+                  </thead>
+                  <tbody>
+                      @if(auth()->user()->orderDetails)
+                          @foreach(auth()->user()->orderDetails->details as $detail)
+                          <tr>
+                              <td>{{ $detail->product->name }}</td>
+                              <td>&dollar;{{ $detail->product->price }}</td>
+                              <td>{{ $detail->quantity }}</td>
+                          </tr>
+                          @endforeach
+                      @endif
 
-                </tbody>
-            </table>
-        </div>
+                  </tbody>
+              </table>
+          </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
-        </div>
+      </div>
     </div>
 </div>
 
@@ -183,14 +170,29 @@
       </div>
       <div class="modal-footer">
         <form method="post" action="{{ url('/order') }}">
-        {{ csrf_field() }}
-        {{ method_field('DELETE') }}
-            <button type="submit" class="btn btn-primary ml-auto mr-auto text-center">Confirmar</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          {{ csrf_field() }}
+          {{ method_field('DELETE') }}
+          <button type="submit" class="btn btn-primary ml-auto mr-auto text-center">Confirmar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         </form>
       </div>
     </div>
   </div>
 </div>
+@else
+<div class="row">
+    <div class="col-md-12">  
+        <div class="info">
+            <div class="icon icon-info text-center">
+                <i class="material-icons">info</i>
+            </div>
+            <div class="text-center"><h2>No hay pedidos aqui por ahora</h2></div>
+        </div> 
+    </div>
+</div>
+@endif
+
+
+
 
 @endsection
