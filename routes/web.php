@@ -14,6 +14,9 @@ Auth::routes();
 
 Route::get('/', 'TestController@welcome');
 
+#Ruta para obtener los productos en la busqueda predictiva
+Route::get('/products/json','SearchController@data');
+
 Route::get('/home', 'HomeController@index')->name('home');
 #Ruta para todos los productos
 Route::get('/products','ProductController@index');

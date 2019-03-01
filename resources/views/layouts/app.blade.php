@@ -151,6 +151,9 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
   <script src="{{ asset('js/material-kit.js?v=2.0.5') }}" type="text/javascript"></script>
+
+  <!-- Cargando solamente libreria de JS typehead para el buscador de welcome.php-->
+  @yield('scripts')
 </body>
 
 </html>

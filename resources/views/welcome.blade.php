@@ -98,18 +98,22 @@
     <!-- Products section -->
     <div class="section text-center">
         <h2 class="title">Productos destacados </h2>
+        <br>
+        <!--button -->
+        <span class="clearfix"></span>
+          <form class="form-inline justify-content-center" name="query" method="get" action="{{ url('search') }}">
+            <div class="form-group no-border">
+            <input type="text" class="form-control" placeholder="¿Que producto buscas?" name="query" id="search">
+            </div>
+            <button type="submit" class="btn btn-primary btn-just-icon btn-round">
+            <i class="material-icons">search</i>
+            </button>
+          </form>
+
+        <!--End button -->          
+          
           <div class="team">
-          <!--button -->
-            <form class="form-inline ml-auto mr-auto" name="query" method="get" action="{{ url('search') }}">
-              <div class="form-group no-border">
-                <input type="text" class="form-control" placeholder="¿Que producto buscas?" name="query">
-              </div>
-              <button type="submit" class="btn btn-primary btn-just-icon btn-round">
-                  <i class="material-icons">search</i>
-              </button>
-            </form>
-            <!--End button -->
-            
+         
             <div class="row">
                 @foreach($allProducts as $product)
                 <div class="col-md-4">
@@ -192,4 +196,32 @@
     </div>
   </div>
   <!--end principal content-->
+@endsection
+
+@section('scripts')
+  <script src="{{ asset('/js/typeahead.bundle.min.js') }}"> </script>
+  <script>
+    $(function(){
+      // Inicializamos el motor de busqueda que realmente hace las sugerencias
+      // bundle: una agrupacion de ambos
+      var products = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.whitespace,
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        prefetch: '{{ url("/products/json") }}'
+      });
+     
+      // Inicializamos typeahead sobre el input de busqueda
+      $('#search').typeahead({
+        //propiedades
+        hint: true,
+        highlight: true,
+        minLength: 1
+      },{
+        // dataset
+        name: 'products',
+        source:products
+      });
+
+    });
+  </script>
 @endsection
