@@ -30,9 +30,18 @@ class Category extends Model
 
     #Accesor
     public function getFeaturedImageUrlAttribute(){
+        
+        #Si la categoria tiene una imagen la devolvemos, sino, devolvemos la imagen del primer producto
+        if($this->image){
+            return '/images/categories/'.$this->image;
+        }
+            
         #accedemos a los productos asociados a esta categoria
         # y tomamos el primero
-        $featuredProduct = $this->products()->first();
-        return $featuredProduct->featured_image_url;
+        $firstProduct = $this->products()->first();
+        if($firstProduct)
+            return $firstProduct->featured_image_url;
+        else
+            return '/images/products/default.png';
     }
 }

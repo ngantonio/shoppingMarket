@@ -149,12 +149,6 @@
     </div>
 
   
-    <!--End Section text center -->
-    <!--<a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
-                                <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
-                                <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>-->
-
-
       <div class="section section-contacts">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">

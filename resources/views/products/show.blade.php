@@ -21,17 +21,22 @@
                 <img src="{{ $product->featured_image_url }}" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
 
+              <div class="name">
+                <h3 class="title">{{ $product->name }}</h3>
+                <h4><a href=" {{ url('/categories/'. $product->category->id) }}"> {{ $product->category->name }} </a></h4>
+              </div>
+              <!--End name-->
               @if(session('notification'))
                 <div class="alert alert-success text-center">
                   {{ session('notification') }}
                 </div>
               @endif
 
-              <div class="name">
-                <h3 class="title">{{ $product->name }}</h3>
-                <h4><a href=" {{ url('/categories/'. $product->category->id) }}"> {{ $product->category->name }} </a></h4>
-              </div>
-              <!--End name-->
+              @if(session('error'))
+                <div class="alert alert-warning text-center">
+                  {{ session('error') }}
+                </div>
+              @endif
             </div>
             <!--End profile -->
           </div>
@@ -56,7 +61,7 @@
                   </button>
                 @endguest
                 
-                <a href="{{ url('/') }}" type="button" class="btn btn-btn-outline-light btn-round">
+                <a href="{{ url('/products') }}" type="button" class="btn btn-btn-outline-light btn-round">
                     <i class="material-icons">arrow_back</i> Regresar
                 </a>
               </div>

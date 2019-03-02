@@ -73,7 +73,7 @@ Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(
   
   # Actualizar y editar
   Route::get('/categories/{category}/edit', 'CategoryController@edit');
-  Route::post('/categories{category}/edit', 'CategoryController@update');
+  Route::post('/categories/{category}/edit', 'CategoryController@update');
   #Eliminar
   Route::delete('/categories/{category}', 'CategoryController@destroy');
 

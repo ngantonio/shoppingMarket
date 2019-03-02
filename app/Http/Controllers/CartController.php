@@ -13,7 +13,7 @@ class CartController extends Controller
     public function update(Request $req){
         #dd($req);
 
-        $currentCart = auth()->user()->cart;
+        $currentCart                = auth()->user()->cart;
         # Recorremos cada producto del carrito para obtener la cantidad total
         
         $total = 0;
@@ -21,10 +21,10 @@ class CartController extends Controller
           $total= $total + $detail->product->price * $detail->quantity;
         
         
-        $currentCart->code = $this->generateCode(8);
-        $currentCart->total = $total;
-        $currentCart->order_date = date('d-m-Y');
-        $currentCart->status = "Pendiente";
+        $currentCart->code          = $this->generateCode(8);
+        $currentCart->total         = $total;
+        $currentCart->order_date    = date('d-m-Y');
+        $currentCart->status        = "Pendiente";
         $currentCart->save();
 
         $notification= "Tu pedido se ha registrado correctamente. Te contactaremos via email a la brevedad...";
@@ -43,7 +43,7 @@ class CartController extends Controller
             $order->arrived_date = date('d-m-Y');
         $order->save();  
         
-        $notification= "¡El status del producto ha cambiado!";
+        $notification           = "¡El status del producto ha cambiado!";
         return back()->with(compact('notification'));
     }
 

@@ -29,21 +29,26 @@
 
                 @foreach($allProducts as $product)
                 <div class="col-md-4">
-                    <div class=" card team-player">
-                        <div class="card card-plain">
-                            <div class="col-md-6 ml-auto mr-auto">
-                                
-                                <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
-                            
+                    <div class=" card card-blog">
+                        <div class="card-plain ">
+                        <!-- card -->
+                            <div  class="card-header card-header-image" >
+                                <img class="card-img-top" src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised img-fluid"> 
                             </div>
-                            <h4 class="card-title"> <a href=" {{ url('/products/'. $product->id) }}"> {{ $product->name }}  </a>
-                                <br>
-                                <small class="card-description text-muted"> <a href=" {{ url('/categories/'. $product->category->id) }}"> {{ $product->category->name }} </a></small>
+
+                            <h4 class="card-title"> <a href=" {{ url('/products/'. $product->id) }}"> {{ $product->name }} </a>
                             </h4>
                             <div class="card-body">
                                 <p class="card-description">{{ $product->description }} </p>
+                                <h4 class="card-description">&dollar;{{ $product->price }} </h4>
+                                <h6><a href=" {{ url('/categories/'. $product->category->id) }}"> {{ $product->category->name }} </a></h6>
                             </div>
                             <div class="card-footer justify-content-center">
+                   
+                                <a href="{{ url('/products/'. $product->id) }}" type="button" class="btn btn-outline-primary  btn-round">
+                                    <i class="material-icons">add</i> Ver más
+                                </a>
+ 
                             </div>
                         </div>
                     </div>

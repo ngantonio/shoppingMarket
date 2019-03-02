@@ -14,5 +14,5 @@ class CartDetail extends Model
         #Un detalle de un carrito de compras pertence a un producto
         return $this->belongsTo(Product::class);
     }
-    
+
 }

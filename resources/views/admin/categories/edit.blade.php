@@ -26,7 +26,7 @@
           </div>
         @endif
         
-        <form class="form" method="POST" action="{{ url('/admin/categories'.$category->id.'/edit') }}">
+        <form class="form" method="POST" action="{{ url('/admin/categories/'.$category->id.'/edit') }}">
           {{ csrf_field() }}
 
         <!-- Nombre -->
@@ -35,6 +35,15 @@
             <div class="form-group">
               <input type="text" class="form-control" name="name" aria-describedby="name" placeholder="Nuevo nombre" value="{{ $category->name }}">
             </div>
+          </div>
+
+          <div class="col-md-6">
+              <label class="control-label">Selecciona una imagen para actualizar</label>
+              <input class="form-control" type="file" name="image" class="inputFileHidden">
+              <!-- SI la categoria tiene imagen, muestra el texto -->
+              @if($category->image)
+                <p class="help-block">Subir solo si desea reemplazar la <a href="{{ asset('/images/categories/'.$category->image) }}" target="_blank">imagen actual</a></p>
+              @endif
           </div>
         </div>
 

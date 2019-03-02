@@ -37,4 +37,5 @@ class Product extends Model
             return $this->category->name;
         return 'General';
     }
+
 }

@@ -24,6 +24,7 @@
               <table class="table">
                   <thead>
                       <tr>
+                        <th class="col-md-2 text-center"> img</th>
                         <th class="col-md-2 text-center"> Nombre</th>
                         <th class="col-md-2 text-center"> Descripción</th>
                         <th class="text-rigth">Acciones</th>
@@ -33,6 +34,7 @@
                       @foreach($allCategories as $category)
                       <tr>
                         
+                        <td><img src="{{ $category->featured_image_url }}" alt="" height="50"></td>
                         <td>{{ $category->name }}</td>
                           <td class="col-md-4"> {{ $category->description }}</td>
                           <td class="td-actions text-right col-md-4">
@@ -46,11 +48,6 @@
                                 <a href="{{ url('/admin/categories/'.$category->id.'/edit') }}" type="button" rel="tooltip" title="Editar" class="btn btn-success
                                 btn-simple btn-xs">
                                     <i class="material-icons">edit</i>
-                                </a>
-
-                                <a href="{{ url('/admin/categories/'.$category->id.'/images') }}" type="button" rel="tooltip" title="Imagenes" class="btn btn-warning
-                                btn-simple btn-xs">
-                                    <i class="material-icons">image</i>
                                 </a>
                                 
                                 <button type="submit" rel="tooltip" title="Eliminar Categoria" class="btn btn-danger

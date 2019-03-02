@@ -21,19 +21,18 @@ class ImageController extends Controller
     public function store(Request $request, $id){
 
         // Almacenar imagen en una carpeta del proyecto y establecerle un nombre
-        $file = $request->file('photo');
-        $path = public_path().'/images/products';
-        $filename = uniqid().$file->getClientOriginalName();
-        $moved = $file->move($path,$filename);
+        $file       = $request->file('photo');
+        $path       = public_path().'/images/products';
+        $filename   = uniqid().$file->getClientOriginalName();
+        $moved      = $file->move($path,$filename);
 
         //crear un registro en la base de datos
         if($moved){
-            $productImage = new ProductImage();
-            $productImage->url = $filename;
-            $productImage->product_id = $id;
-            $productImage->save();
+            $productImage               = new ProductImage();
+            $productImage->url          = $filename;
+            $productImage->product_id   = $id;
+            $productImage->save();s
         }
-        
         return back();
     }
 
@@ -45,8 +44,8 @@ class ImageController extends Controller
         if(substr($image->url, 0, 4) === "http")
             $deleted = true;
         else{
-            $fullPath = public_path().'/images/products/'.$image->url;
-            $deleted = File::delete($fullPath);
+            $fullPath   = public_path().'/images/products/'.$image->url;
+            $deleted    = File::delete($fullPath);
         }
 
         # Eliminar el registro en la base de datos

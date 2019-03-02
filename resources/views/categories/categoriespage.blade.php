@@ -15,46 +15,103 @@
   </div>
   <div class="main main-raised">
     <div class="container">
-        <div class="section text-center">
-        @if (session('notification'))
-          <div class="alert alert-success text-center">
-              { session('notification') }}
-          </div>
-        @endif
-        <h2 class="title"></h2>
-        <div class="team">
-            <div class="row">
-
-                @foreach($allProducts as $product)
-                <div class="col-md-4">
-                    <div class=" card team-player">
-                        <div class="card card-plain">
-                            <div class="col-md-6 ml-auto mr-auto">
-                                
-                                <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
-                            
+        <div class="section">
+            <h2 class="title"></h2>
+            <div class="">
+                <div class="row">
+                    <div class="col-md-6"  >
+                            <!-- Card blog -->
+                            <div class="card bg-dark text-white">
+                                <img class="card-img" src="https://images.unsplash.com/photo-1517303650219-83c8b1788c4c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd4c162d27ea317ff8c67255e955e3c8&auto=format&fit=crop&w=2691&q=80" alt="Card image">
+                                <div class="card-img-overlay">
+                                    <h4 class="card-title">Card title</h4>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    <p class="card-text">Last updated 3 mins ago</p>
+                                </div>
                             </div>
-                            <h4 class="card-title"> <a href=" {{ url('/products/'. $product->id) }}"> {{ $product->name }}  </a>
-                                <br>
-                                <small class="card-description text-muted"> {{ $product->category->name }}</small>
-                            </h4>
-                            <div class="card-body">
-                                <p class="card-description">{{ $product->description }} </p>
-                            </div>
-                            <div class="card-footer justify-content-center">
-                            </div>
-                        </div>
+                            <!-- End Card Blog -->
                     </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-        <div class="text-center">
-          {{ $allProducts->links("pagination::bootstrap-4") }}
-        </div>
-    </div>
 
+                    <div class="col-md-3 mb-auto mt-auto" >
+                        <h3>Mas compradas</h3>
+                            <!-- Card blog -->
+                            <div class="card bg-dark text-white">
+                                <img class="card-img" src="https://images.unsplash.com/photo-1517303650219-83c8b1788c4c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd4c162d27ea317ff8c67255e955e3c8&auto=format&fit=crop&w=2691&q=80" alt="Card image">
+                                <div class="card-img-overlay">
+                                    <h4 class="card-title">Card title</h4>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    <p class="card-text">Last updated 3 mins ago</p>
+                                </div>
+                            </div>
+                            <!-- End Card Blog -->
+                    </div>
+
+                    <div class="col-md-3 mb-auto mt-auto" >
+                            <!-- Card blog -->
+                            <h3>Nueva</h3>
+                            <div class="card bg-dark text-white">
+                                <img class="card-img" src="https://images.unsplash.com/photo-1517303650219-83c8b1788c4c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd4c162d27ea317ff8c67255e955e3c8&auto=format&fit=crop&w=2691&q=80" alt="Card image">
+                                <div class="card-img-overlay">
+                                    <h4 class="card-title">Card title</h4>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    <p class="card-text">Last updated 3 mins ago</p>
+                                </div>
+                            </div>
+                            <!-- End Card Blog -->
+                    </div>
+
+                </div>
+                <!-- end row --> 
+                <div class="row">
+                    <div class="col-md-4"  >
+                            <!-- Card blog -->
+                            <div class="card bg-dark text-white">
+                                <img class="card-img" src="https://images.unsplash.com/photo-1517303650219-83c8b1788c4c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd4c162d27ea317ff8c67255e955e3c8&auto=format&fit=crop&w=2691&q=80" alt="Card image">
+                                <div class="card-img-overlay">
+                                    <h4 class="card-title">Card title</h4>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    <p class="card-text">Last updated 3 mins ago</p>
+                                </div>
+                            </div>
+                            <!-- End Card Blog -->
+                    </div>
+
+                    <div class="col-md-4" >
+                            <!-- Card blog -->
+                            <div class="card bg-dark text-white">
+                                <img class="card-img" src="https://images.unsplash.com/photo-1517303650219-83c8b1788c4c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd4c162d27ea317ff8c67255e955e3c8&auto=format&fit=crop&w=2691&q=80" alt="Card image">
+                                <div class="card-img-overlay">
+                                    <h4 class="card-title">Card title</h4>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    <p class="card-text">Last updated 3 mins ago</p>
+                                </div>
+                            </div>
+                            <!-- End Card Blog -->
+                    </div>
+
+                    <div class="col-md-4" >
+                            <!-- Card blog -->
+                            <div class="card bg-dark text-white">
+                                <img class="card-img" src="https://images.unsplash.com/photo-1517303650219-83c8b1788c4c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd4c162d27ea317ff8c67255e955e3c8&auto=format&fit=crop&w=2691&q=80" alt="Card image">
+                                <div class="card-img-overlay">
+                                    <h4 class="card-title">Card title</h4>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    <p class="card-text">Last updated 3 mins ago</p>
+                                </div>
+                            </div>
+                            <!-- End Card Blog -->
+                    </div>
+
+                </div>
+                
+                
+            </div>
+            <!-- end team -->
+        </div>
+        <!-- end section -->
     </div>
+    <!-- end container -->
   </div>
+  <!-- end main -->
 
 @endsection
