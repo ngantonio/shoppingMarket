@@ -1,8 +1,6 @@
-# shopping-cart
+### Descripción General
 
-## Descripcion General
-
-### Sistema basico de pedidos en linea desarrollado en Laravel, ideal para una empresa distribuidora de productos de distintas cateogrias.
+#### Sistema basico de pedidos en linea desarrollado en Laravel, ideal para una empresa distribuidora de productos de distintas cateogrias.
 
 
 
@@ -71,5 +69,6 @@ De acuerdo a los conocimientos que adquiera en el tiempo, la aplicacion podrá d
 * namespaces para controladores y metodoy Accessors y Mutators en los modelos.
 
 
-> *Desarrollado en Laravel v-5.7, Sistema Operativo Debian Jessie*
-*README.md elaborado por Gabriel Antonio*
+> *Desarrollado en Laravel v-5.7, Sistema Operativo Debian Jessie*. 
+README.markdown elaborado por Gabriel Antonio
+
